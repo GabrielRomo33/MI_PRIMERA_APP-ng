@@ -9,7 +9,11 @@
             (click)='agregarPeronsa()'>
                 Agregar persona
             </button>
-            <p>{{mensaje}}</p>
+            <!-- ngif nos ayuda a condicionar la aparecion de elementos  no se dibuja en el DOM hasta que la condicion se cumpla-->
+            <p *ngIf="mostrar; else sinpersona">{{mensaje}} con el nombre: {{titulo}}</p>
+            <ng-template #sinpersona>
+                <p>No se ha agregado ninguna perosna</p>
+            </ng-template>
             <app-persona></app-persona>
 
             <label for="">Titulo Persona</label>
